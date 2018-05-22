@@ -2,7 +2,7 @@ module.exports.interval = () => {
   setInterval(() => {
     console.log('Starting notes.js')
   }, 3000);
-}
+};
 
 // console.log(module);
 // console.log('Starting notes.js'),
@@ -10,7 +10,7 @@ module.exports.interval = () => {
 module.exports.addNote = () => {
   console.log('addNote');
   return 'New Note';
-}
+};
 
 // Add function
 // Make new function called add(a, b);
