@@ -7,11 +7,13 @@
   "version": "1.0.0",
   "license": "IST",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "nodemon app.js"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "nodemon": "^1.17.4"
   },
   "dependencies": {
     "lodash": "^4.17.10"
