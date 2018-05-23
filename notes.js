@@ -4,8 +4,6 @@ module.exports.interval = () => {
   }, 3000);
 };
 
-// console.log(module);
-// console.log('Starting notes.js'),
 
 module.exports.addNote = () => {
   console.log('addNote');
