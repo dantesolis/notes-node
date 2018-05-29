@@ -9,7 +9,7 @@ describe('addNote', () => {
   	const title = 'Dummy Title';
   	const body = 'Dummy body';
 
-    const addNote = notes.addNote(title, body);
-    expect(addNote).to.equal();
+    const newNote = notes.addNote(title, body);
+    expect(newNote.title).to.include('Dummy title');
   })
 });
