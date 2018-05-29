@@ -4,9 +4,12 @@ const notes = require('../notes.js');
 
 console.log('About to start running tests on notes.js.');
 
-describe('add function', () => {
-  it('should add to numbers corretly', () => {
-    const addition = notes.add(1,2);
-    expect(addition).to.equal(3);
+describe('addNote', () => {
+  it('should add a note with title and body', () => {
+  	const title = 'Dummy Title';
+  	const body = 'Dummy body';
+
+    const addNote = notes.addNote(title, body);
+    expect(addNote).to.equal();
   })
 });

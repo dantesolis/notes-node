@@ -7,15 +7,13 @@ const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-// accessing args from the command line at third position;
-// argv arrays
-const command = process.argv[2];
-
-// for passing args
+// eases the process for parsing args
 const argv = yargs.argv;
-
+const command = argv._[0];
+// accessing args from the command line at third position
+// of the argv arrays (same as above)
+// const command = process.argv[2];
 console.log(`Command: ${command}`);
-console.log(`Proccess: ${process.argv}`);
 console.log(`Yargs: ${JSON.stringify(argv)}`);
 
 console.log(process.argv);
@@ -24,13 +22,14 @@ if (command === 'add') {
 	notes.addNote(argv.title, argv.body);
 
 } else if (command === 'list') {
+	notes.getAll();
 
-	console.log('Listing all notes');
-	
 } else if (command === 'read') {
-	console.log('Readig all notes');
+	notes.getNote(argv.title);	
+
 } else if (command === 'remove') {
-	console.log('Removing all notes');
+	notes.removeNote(argv.title);
+
 } else if (command === '') {
 	console.log('No command passed in');
 } else {
