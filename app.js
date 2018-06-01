@@ -9,6 +9,7 @@ const notes = require('./notes.js');
 
 // eases the process for parsing args
 const argv = yargs.argv;
+
 const command = argv._[0];
 // accessing args from the command line at third position
 // of the argv arrays (same as above)
