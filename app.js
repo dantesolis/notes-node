@@ -17,6 +17,7 @@ const command = argv._[0];
 console.log(`Command: ${command}`);
 console.log(`Yargs: ${JSON.stringify(argv)}`);
 
+// prints out how the arguments passed to on th command line 
 console.log(process.argv);
 
 if (command === 'add') {

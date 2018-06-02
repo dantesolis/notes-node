@@ -1,13 +1,36 @@
 /* [TODO]: 
-* Maybe change to ES7/8 to export/import declarations?
-* Write test for all this functions
-*
+* - [ ] Maybe change to ES7/8 to export/import declarations?
+* - [ ] Write test for all this functions
+* - [ ] Add flow
 */
 
 console.log('Startng notes.js');
 
+const fs = require('fs');
+
 const addNote = (title, body) => {
-  console.log(`Adding note with title and body: ${title, body}`);
+
+  let notes = [];
+  const note = {
+  	title,
+  	body
+  };
+
+  try {
+  	const notesString = fs.readFileSync('notes-data.json');
+  	// parses the string and returns an arry
+  	notes = JSON.parse(notesString);
+  } catch (e) {
+  	
+  }
+
+  const duplicateNotes = notes.filter(note => note.title === title);
+
+  if (duplicateNotes.length === 0) {
+	notes.push(note);
+	fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+  }
+
 };
 
 const getAll = () => {
