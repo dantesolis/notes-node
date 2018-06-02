@@ -21,7 +21,7 @@ const addNote = (title, body) => {
   	// parses the string and returns an arry
   	notes = JSON.parse(notesString);
   } catch (e) {
-  	
+  	//
   }
 
   const duplicateNotes = notes.filter(note => note.title === title);
