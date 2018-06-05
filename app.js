@@ -21,8 +21,13 @@ console.log(`Yargs: ${JSON.stringify(argv)}`);
 console.log(process.argv);
 
 if (command === 'add') {
-	notes.addNote(argv.title, argv.body);
+	let note = notes.addNote(argv.title, argv.body);
 
+	if (typeof note === undefined ) {
+		return `note with tthat title already exists`;
+	} else {
+		return note;
+	}
 } else if (command === 'list') {
 	notes.getAll();
 
