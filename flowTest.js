@@ -1,4 +1,5 @@
 // @flow
+// https://codeburst.io/getting-started-with-flow-and-nodejs-b8442d3d2e57
 
 // typed alias
 type Point2d = {|
