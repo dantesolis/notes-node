@@ -1,15 +1,15 @@
-const expect = require('chai').expect;
+// @flow
+// https://codeburst.io/getting-started-with-flow-and-nodejs-b8442d3d2e57
 
-const notes = require('../notes.js');
+// typed alias
+type Point2d = {|
+	x: number,
+	y: number
+|};
 
-console.log('About to start running tests on notes.js.');
+const myPoint: Point2d = {
+  x: 1,
+  y: 2
+};
 
-describe('addNote', () => {
-  it('should add a note with title and body', () => {
-  	const title = 'Dummy Title';
-  	const body = 'Dummy body';
-
-    const newNote = notes.addNote(title, body);
-    expect(newNote.title).to.include('Dummy title');
-  })
-});
+console.log(myPoint.x, myPoint.y);
