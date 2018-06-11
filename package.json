@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha",
     "start": "nodemon app.js",
+    "clean": "rimraf lib/",
     "flow:build": "flow-remove-types ./src/ -d ./lib/ --pretty --all",
     "flow": "flow",
     "flow:check": "flow check",
@@ -20,7 +21,8 @@
     "flow-remove-types": "^1.2.3",
     "flow-typed": "^2.4.0",
     "mocha": "^5.1.1",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.4",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "lodash": "^4.17.10",
