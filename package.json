@@ -8,10 +8,17 @@
   "license": "IST",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "flow:build": "flow-remove-types ./src/ -d ./lib/ --pretty --all",
+    "flow": "flow",
+    "flow:check": "flow check",
+    "flow:deps": "flow-typed install"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "flow-bin": "^0.73.0",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.4.0",
     "mocha": "^5.1.1",
     "nodemon": "^1.17.4"
   },
