@@ -20,8 +20,13 @@ console.log(`Yargs: ${JSON.stringify(argv)}`);
 // prints out how the arguments passed to on th command line 
 console.log(process.argv);
 
-if (command === 'add') {
-	notes.addNote(argv.title, argv.body);
+if (command === 'add') {	
+	let note = notes.addNote(argv.title, argv.body);
+	console.log(`This is the note that was added: ${note}`)
+	if (typeof note === 'undefined' ) {
+		console.log('a note witht that title was already added');
+	} else {
+		console.log(`A note was added with title: ${note.title} and body: ${note.body}`)
 
 } else if (command === 'list') {
 	notes.getAll();

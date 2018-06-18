@@ -1,3 +1,4 @@
+// @flow
 /* [TODO]: 
 * - [ ] Maybe change to ES7/8 to export/import declarations?
 * - [ ] Write test for all this functions
@@ -12,7 +13,7 @@ const fetchNotes = () => {
   try {
     const notesString = fs.readFileSync('notes-data.json');
     // parses the string and returns an arry
-    return  JSON.parse(notesString);
+    return JSON.parse(notesString);
   } catch (e) {
     return [];  
   };
@@ -29,14 +30,6 @@ const addNote = (title, body) => {
     title,
     body
   };
-
-  try {
-    const notesString = fs.readFileSync('notes-data.json');
-    // parses the string and returns an arry
-    notes = JSON.parse(notesString);
-  } catch (e) {
-    //
-  }
 
   const duplicateNotes = notes.filter(note => note.title === title);
 
