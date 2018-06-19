@@ -22,12 +22,12 @@ console.log(process.argv);
 
 if (command === 'add') {	
 	let note = notes.addNote(argv.title, argv.body);
-	console.log(`This is the note that was added: ${note}`)
+	console.log(`This is the note that was added: ${JSON.stringify(note)}`)
 	if (typeof note === 'undefined' ) {
 		console.log('a note witht that title was already added');
 	} else {
 		console.log(`A note was added with title: ${note.title} and body: ${note.body}`)
-
+	}
 } else if (command === 'list') {
 	notes.getAll();
 
