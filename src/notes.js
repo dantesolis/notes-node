@@ -49,7 +49,9 @@ const getNote = (title) => {
 };
 
 const removeNote = (title) => {
-  console.log(`Deleting note with title: ${title}`);
+  let notes = fetchNotes();
+  let newNotesArray = notes.filter(note => note.title !== title);
+  saveNotes(newNotesArray);
 };
 
 
