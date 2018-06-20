@@ -50,10 +50,11 @@ const getNote = (title) => {
 
 const removeNote = (title) => {
   let notes = fetchNotes();
-  let newNotesArray = notes.filter(note => note.title !== title);
-  saveNotes(newNotesArray);
-};
+  let filteredNotes = notes.filter(note => note.title !== title);
+  saveNotes(filteredNotes);
 
+  return notes.length !== filteredNotes.length;
+};
 
 
 module.exports = {
