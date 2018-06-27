@@ -5,11 +5,18 @@
 * - [ ] Add flow
 */
 
+/*::
+export type Note = {
+  title: string,
+  body: string,
+}
+*/
+
 console.log('Startng notes.js');
 
 const fs = require('fs');
 
-const fetchNotes = () => {
+const fetchNotes = () /*: Array<Note> */ => {
   try {
     const notesString = fs.readFileSync('notes-data.json', 'utf8');
     // parses the string and returns an arry
@@ -24,7 +31,7 @@ const saveNotes = (notes) => {
 };
 
 
-const addNote = (title, body) => {
+const addNote = (title /*: string */, body /*: string */) /*: Note */ => {
   let notes = fetchNotes();
   const note = {
     title,
@@ -44,11 +51,11 @@ const getAll = () => {
   console.log(`Getting all notes`);
 }
 
-const getNote = (title) => {
+const getNote = (title /*: string  */) /*: {} | void */ => {
   console.log(`Getting note with title: ${title}`);
 };
 
-const removeNote = (title) => {
+const removeNote = (title /*: string */ ) => {
   let notes = fetchNotes();
   let filteredNotes = notes.filter(note => note.title !== title);
   saveNotes(filteredNotes);
