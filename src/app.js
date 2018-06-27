@@ -24,7 +24,7 @@ if (command === 'add') {
 	let note = notes.addNote(argv.title, argv.body);
 	console.log(`This is the note that was added: ${JSON.stringify(note)}`)
 	if (typeof note === 'undefined' ) {
-		console.log('a note witht that title was already added');
+		console.log('a note with that title was already added');
 	} else {
 		console.log(`A note was added with title: ${note.title} and body: ${note.body}`)
 	}
@@ -32,10 +32,15 @@ if (command === 'add') {
 	notes.getAll();
 
 } else if (command === 'read') {
-	notes.getNote(argv.title);	
+	notes.getNote(argv.title);
+  // complete this function
+  // do something zith return value with read note
+  // general flow is the same as <add>
 
 } else if (command === 'remove') {
-	notes.removeNote(argv.title);
+	let noteRemoved = notes.removeNote(argv.title);
+	let message = noteRemoved ? 'Note was removed' : 'Note not found';
+	console.log(message);
 
 } else if (command === '') {
 	console.log('No command passed in');

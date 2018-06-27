@@ -53,6 +53,11 @@ const getAll = () => {
 
 const getNote = (title /*: string  */) /*: {} | void */ => {
   console.log(`Getting note with title: ${title}`);
+
+  // complete this function
+  // fetchNotes
+  // filter notes by title
+  // return this note => return first item on the array
 };
 
 const removeNote = (title /*: string */ ) => {
