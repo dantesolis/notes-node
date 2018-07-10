@@ -28,14 +28,27 @@ if (command === 'add') {
 	} else {
 		console.log(`A note was added with title: ${note.title} and body: ${note.body}`)
 	}
+
 } else if (command === 'list') {
 	notes.getAll();
 
 } else if (command === 'read') {
-	notes.getNote(argv.title);
+	let note = notes.getNote(argv.title);
+  console.log(`This is the note: ${JSON.stringify(note)}`);
+
   // complete this function
   // do something zith return value with read note
   // general flow is the same as <add>
+    if (note) {
+      console.log('Note read');
+      console.log('--');
+      console.log(`note title: ${note.title}`);
+      console.log(`note body: ${note.body}`);
+    } else {
+      console.log(`note title taken or already exists`);
+    }
+
+  
 
 } else if (command === 'remove') {
 	let noteRemoved = notes.removeNote(argv.title);
