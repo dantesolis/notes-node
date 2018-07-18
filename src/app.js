@@ -20,36 +20,34 @@ console.log(`Yargs: ${JSON.stringify(argv)}`);
 // prints out how the arguments passed to on th command line 
 console.log(process.argv);
 
+
+// command add
 if (command === 'add') {	
 	let note = notes.addNote(argv.title, argv.body);
-	console.log(`This is the note that was added: ${JSON.stringify(note)}`)
-	if (typeof note === 'undefined' ) {
-		console.log('a note with that title was already added');
+
+	if (note) {
+    console.log('Note created');
+		notes.logNote(note);
 	} else {
-		console.log(`A note was added with title: ${note.title} and body: ${note.body}`)
+		console.log(`Note title already taken`);
 	}
 
+// command list
 } else if (command === 'list') {
 	notes.getAll();
 
+// command read
 } else if (command === 'read') {
 	let note = notes.getNote(argv.title);
-  console.log(`This is the note: ${JSON.stringify(note)}`);
 
-  // complete this function
-  // do something zith return value with read note
-  // general flow is the same as <add>
-    if (note) {
-      console.log('Note read');
-      console.log('--');
-      console.log(`note title: ${note.title}`);
-      console.log(`note body: ${note.body}`);
-    } else {
-      console.log(`note title taken or already exists`);
-    }
+  if (note) {
+    console.log('Note found');
+    notes.logNote(note);
+  } else {
+    console.log(`Note not found`);
+  }
 
-  
-
+// command remove
 } else if (command === 'remove') {
 	let noteRemoved = notes.removeNote(argv.title);
 	let message = noteRemoved ? 'Note was removed' : 'Note not found';

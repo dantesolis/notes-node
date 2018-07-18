@@ -16,6 +16,7 @@ console.log('Startng notes.js');
 
 const fs = require('fs');
 
+// Fetching Notes
 const fetchNotes = () /*: Array<Note> */ => {
   try {
     const notesString = fs.readFileSync('notes-data.json', 'utf8');
@@ -55,23 +56,12 @@ const getAll = () => {
 
 // Reading All Notes
 const getNote = (title /*: string  */) /*: {} | void */ => {
-  console.log(`Getting note with title: ${title}`);
 
-  // complete this function
-  // fetchNotes
   let notes = fetchNotes();
-  console.info(`These are the fetched notes ${JSON.stringify(notes)}`);
 
-  const note = { title };
-  console.log(`This is the note: ${JSON.stringify(note)}`);
+  const filteredNotes = notes.filter(note => note.title === title);
 
-  // filter notes by title
-  const duplicateNotes = notes.filter(note => note.title === title);
-
-  console.log(`These are the duplicateNotes: ${JSON.stringify(duplicateNotes)}`);
-
-  // return this note => return first item on the array
-  return duplicateNotes;
+  return filteredNotes[0];
 };
 
 // Removing a Note
@@ -83,10 +73,17 @@ const removeNote = (title /*: string */ ) => {
   return notes.length !== filteredNotes.length;
 };
 
+// Loging a Note
+const logNote = (note) => {
+  console.log('--');
+  console.log(`note title: ${note.title}`);
+  console.log(`note body: ${note.body}`);  
+}
 
 module.exports = {
   addNote,
   getAll,
   getNote,
   removeNote,
+  logNote
 };
