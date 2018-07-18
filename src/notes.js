@@ -75,6 +75,9 @@ const removeNote = (title /*: string */ ) => {
 
 // Loging a Note
 const logNote = (note) => {
+  // break on this line and use repl to output note
+  // use read command with --title='to buy'
+  debugger;
   console.log('--');
   console.log(`note title: ${note.title}`);
   console.log(`note body: ${note.body}`);  
