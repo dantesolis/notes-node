@@ -1,6 +1,4 @@
 // nodejs.org/api  /* to see all modules that come with node */
-console.log(`Starting app`);
-
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
@@ -14,11 +12,11 @@ const command = argv._[0];
 // accessing args from the command line at third position
 // of the argv arrays (same as above)
 // const command = process.argv[2];
-console.log(`Command: ${command}`);
-console.log(`Yargs: ${JSON.stringify(argv)}`);
+// console.log(`Command: ${command}`);
+// console.log(`Yargs: ${JSON.stringify(argv)}`);
 
 // prints out how the arguments passed to on th command line 
-console.log(process.argv);
+// console.log(process.argv);
 
 
 // command add
@@ -34,8 +32,9 @@ if (command === 'add') {
 
 // command list
 } else if (command === 'list') {
-	notes.getAll();
-
+	let allNotes = notes.getAll();
+	console.log(`Printing: ${allNotes.length} notes(s)`);
+	allNotes.forEach(note => notes.logNote(note));
 // command read
 } else if (command === 'read') {
 	let note = notes.getNote(argv.title);

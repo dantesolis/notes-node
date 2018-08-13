@@ -12,8 +12,6 @@ export type Note = {
 }
 */
 
-console.log('Startng notes.js');
-
 const fs = require('fs');
 
 // Fetching Notes
@@ -51,7 +49,7 @@ const addNote = (title /*: string */, body /*: string */) /*: Note */ => {
 
 // Listing All Notes
 const getAll = () => {
-  console.log(`Getting all notes`);
+  return fetchNotes();
 }
 
 // Reading All Notes
