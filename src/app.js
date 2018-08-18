@@ -6,9 +6,24 @@ const yargs = require('yargs');
 const notes = require('./notes.js');
 
 // eases the process for parsing args
-const argv = yargs.argv;
-
+const argv = yargs
+.command('add', 'Add a new note', {
+	title: {
+		describe: 'Title of note', // tells yarg and user what it needs to be pass
+		demand: true,
+		alias: 't' // let's me create an alias so when user passes the argument on the console he could type "-t" for title
+	},
+	body: {
+		describe: 'Body of note',
+		demand: true,
+		alias: 'b'
+	}
+})
+.help() // gives the user available commands when they type --help
+.argv;
 const command = argv._[0];
+
+
 // accessing args from the command line at third position
 // of the argv arrays (same as above)
 // const command = process.argv[2];
