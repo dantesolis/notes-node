@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha",
     "start": "nodemon app.js",
+    "start:playground":"nodemon playground/arrow-function.js",
     "clean": "rimraf lib/",
     "flow:build": "flow-remove-types ./src/ -d ./lib/ --pretty --all",
     "flow": "flow",
