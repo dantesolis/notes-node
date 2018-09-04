@@ -5,37 +5,30 @@ const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-const titleOptions = {};
-const bodyOptions = {};
+const titleOptions = {
+	describe: 'Title of note', // tells yarg and user what it needs to be pass
+	demand: true,
+	alias: 't' // let's me create an alias so when user passes the argument on the console he could type "-t" for title
+};
+
+const bodyOptions = {
+	describe: 'Body of note',
+	demand: true,
+	alias: 'b'
+};
 
 // eases the process for parsing args
 const argv = yargs
 .command('add', 'Add a new note', {
-	title: {
-		describe: 'Title of note', // tells yarg and user what it needs to be pass
-		demand: true,
-		alias: 't' // let's me create an alias so when user passes the argument on the console he could type "-t" for title
-	},
-	body: {
-		describe: 'Body of note',
-		demand: true,
-		alias: 'b'
-	}
+	title: titleOptions,
+	body: bodyOptions
 })
 .command('list', 'List all motes')
 .command('read', 'Read a note', {
-	title: {
-		describe: 'Title of note', // tells yarg and user what it needs to be pass
-		demand: true,
-		alias: 't' // let's me create an alias so when user passes the argument on the console he could type "-t" for title
-	},
+	title: titleOptions
 })
 .command('remove', 'Remove a note', {
-	title: {
-		describe: 'Title of note', // tells yarg and user what it needs to be pass
-		demand: true,
-		alias: 't' // let's me create an alias so when user passes the argument on the console he could type "-t" for title
-	},
+	title: titleOptions
 })
 .help() // gives the user available commands when they type --help
 .argv;
